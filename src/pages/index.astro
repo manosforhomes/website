@@ -50,7 +50,6 @@ const pillars = [
 		<!-- Hero -->
 		<section class="hero">
 			<div class="container hero-inner">
-				<img src="/hand.png" alt="" class="hero-hand" width="180" height="188" />
 				<h1>Manos for Homes</h1>
 				<p class="tagline">Building Dreams</p>
 				<p class="hero-text">
@@ -296,16 +295,12 @@ const pillars = [
 	/* Hero */
 	.hero {
 		position: relative;
-		background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+		background:
+			linear-gradient(180deg, rgba(10, 70, 133, 0.55) 0%, rgba(10, 70, 133, 0.72) 100%),
+			url('/photos/volunteer-group.jpg') center 35% / cover no-repeat;
 		color: #fff;
 		text-align: center;
-		padding: 4.5rem 0 6rem;
-	}
-
-	.hero-hand {
-		margin: 0 auto 1.5rem;
-		border-radius: 28px;
-		box-shadow: 0 10px 40px rgba(10, 70, 133, 0.4);
+		padding: 7rem 0 8rem;
 	}
 
 	.hero h1 {
@@ -314,6 +309,7 @@ const pillars = [
 		color: var(--yellow);
 		letter-spacing: 0.02em;
 		text-transform: uppercase;
+		text-shadow: 0 2px 16px rgba(10, 40, 75, 0.5);
 	}
 
 	.tagline {
@@ -510,11 +506,6 @@ const pillars = [
 
 		.hero {
 			padding: 3rem 0 4.5rem;
-		}
-
-		.hero-hand {
-			width: 130px;
-			height: auto;
 		}
 
 		.hero-text {
