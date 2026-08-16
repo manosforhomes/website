@@ -151,10 +151,27 @@ const pillars = [
 				<p class="eyebrow light">Partners</p>
 				<h2>Stronger together</h2>
 				<p class="lead">
-					We are proud to work alongside companies and foundations in the United States and Colombia,
-					including the <strong>Sereniti Foundation</strong>. If your organization wants to help
-					families build a better future, we'd love to join hands with you.
+					We are proud to work alongside companies and foundations in the United States and Colombia.
+					If your organization wants to help families build a better future, we'd love to join hands
+					with you.
 				</p>
+				<div class="partner-logos">
+					<a class="partner" href="https://www.chipotle.com" target="_blank" rel="noopener" title="Chipotle">
+						<img src="/partners/chipotle.png" alt="Chipotle Mexican Grill" loading="lazy" />
+					</a>
+					<a class="partner" href="https://sereniti.org" target="_blank" rel="noopener" title="Sereniti Foundation">
+						<img src="/partners/sereniti.png" alt="Sereniti Foundation" loading="lazy" />
+					</a>
+					<a class="partner" href="https://curativ.care" target="_blank" rel="noopener" title="Curativ">
+						<img src="/partners/curativ.png" alt="Curativ — functional medicine, Davie FL" loading="lazy" />
+					</a>
+					<a class="partner" href="https://fundacioncatalinamunoz.org" target="_blank" rel="noopener" title="Fundación Catalina Muñoz">
+						<img src="/partners/catalina-munoz.png" alt="Fundación Catalina Muñoz" loading="lazy" />
+					</a>
+					<a class="partner" href="https://uniondecontadores.com" target="_blank" rel="noopener" title="Unión de Contadores Asociados">
+						<img src="/partners/union-contadores.png" alt="Unión de Contadores Asociados Ltda" loading="lazy" />
+					</a>
+				</div>
 			</div>
 		</section>
 
@@ -392,6 +409,37 @@ const pillars = [
 
 	.lead {
 		font-size: 1.15rem;
+	}
+
+	/* Partner logos */
+	.partner-logos {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.25rem;
+		margin-top: 2.5rem;
+	}
+
+	.partner {
+		background: #fff;
+		border-radius: 16px;
+		width: 190px;
+		height: 112px;
+		display: grid;
+		place-items: center;
+		padding: 1rem 1.25rem;
+		box-sizing: border-box;
+		transition: transform 0.15s ease;
+	}
+
+	.partner:hover {
+		transform: translateY(-3px);
+	}
+
+	.partner img {
+		max-width: 100%;
+		max-height: 78px;
+		object-fit: contain;
 	}
 
 	/* Cards */
