@@ -27,20 +27,6 @@ const pillars = [
 	},
 ];
 
-const homes = [
-	{
-		name: 'Casa #1',
-		text: 'Where it all began — our first home, built hand in hand with the community.',
-	},
-	{
-		name: 'Casa #2',
-		text: 'Proof that one home was only the beginning for Manos for Homes.',
-	},
-	{
-		name: 'Casa #3',
-		text: 'Our latest build — and we are just getting started.',
-	},
-];
 ---
 
 <Layout>
@@ -53,7 +39,7 @@ const homes = [
 			<div class="nav-links">
 				<a href="/who-we-are">Who We Are</a>
 				<a href="#work">What We Do</a>
-				<a href="#homes">Our Homes</a>
+				<a href="#homes">Our Work</a>
 				<a href="#involved">Get Involved</a>
 				<a href={instagram} target="_blank" rel="noopener" class="btn btn-yellow btn-small">Follow Us</a>
 			</div>
@@ -68,8 +54,8 @@ const homes = [
 				<h1>Manos for Homes</h1>
 				<p class="tagline">Building Dreams</p>
 				<p class="hero-text">
-					A non-profit foundation building homes for impoverished families in Colombia and serving
-					communities in Colombia and the United States — one pair of hands at a time.
+					A non-profit foundation serving communities in the United States and Colombia — building
+					homes for families in need and bringing neighbors together, one pair of hands at a time.
 				</p>
 				<div class="hero-actions">
 					<a href="#involved" class="btn btn-yellow">Get Involved</a>
@@ -89,9 +75,9 @@ const homes = [
 				<p class="lead">
 					Manos for Homes — <em>manos</em> means <strong>hands</strong> in Spanish — was founded by
 					Simon Aljure-Jauregui with a simple belief: when a community lends its hands, families rise.
-					We provide community service to impoverished populations, build homes for families in need
-					in Colombia, and partner with companies and foundations in both the USA and Colombia to
-					support local and international communities.
+					We serve impoverished communities in both the United States and Colombia — building homes
+					for families in need, organizing community events, and partnering with companies and
+					foundations in both countries.
 				</p>
 			</div>
 		</section>
@@ -117,41 +103,41 @@ const homes = [
 			</div>
 		</section>
 
-		<!-- Homes / impact -->
+		<!-- Our work: Colombia -->
 		<section id="homes" class="section">
 			<div class="container">
-				<p class="eyebrow">Our Impact</p>
-				<h2>Homes we've built in Colombia</h2>
-				<div class="cards homes">
-					{
-						homes.map((h) => (
-							<article class="card home-card">
-								<div class="home-badge">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons.home} />
-								</div>
-								<h3>{h.name}</h3>
-								<p>{h.text}</p>
-							</article>
-						))
-					}
-				</div>
-				<p class="homes-note">
-					Follow the story of every build on <a href={instagram} target="_blank" rel="noopener">our Instagram</a> — from foundation to finished home.
+				<p class="eyebrow">In Colombia</p>
+				<h2>We build homes</h2>
+				<p class="section-intro">
+					Alongside local families and partner foundations, we build safe, dignified homes for
+					families in need — and we keep building. Every home is raised hand in hand with the
+					community that will live in it.
 				</p>
-			</div>
-		</section>
-
-		<!-- Gallery -->
-		<section class="section section-sky">
-			<div class="container">
-				<p class="eyebrow">On the Ground</p>
-				<h2>Hands at work in Colombia</h2>
 				<div class="gallery">
 					<img src="/photos/roof-team.jpg" alt="Two volunteers securing a corrugated roof with mountains in the background" loading="lazy" />
 					<img src="/photos/hands-together.jpg" alt="An adult and a young volunteer hammering together during a build" loading="lazy" />
 					<img src="/photos/team-beam.jpg" alt="Volunteers working together on a structural beam" loading="lazy" />
 					<img src="/photos/build-hammer.jpg" alt="A volunteer hammering during construction of a home" loading="lazy" />
 				</div>
+				<p class="homes-note">
+					Follow every build from foundation to finished home on <a href={instagram} target="_blank" rel="noopener">our Instagram</a>.
+				</p>
+			</div>
+		</section>
+
+		<!-- Our work: Miami -->
+		<section id="miami" class="section section-sky">
+			<div class="container">
+				<p class="eyebrow">In Miami</p>
+				<h2>We build community</h2>
+				<p class="section-intro">
+					Our work starts at home in Miami. We organize community events, holiday celebrations, and
+					fundraisers with local volunteers and partner organizations — bringing neighbors together
+					and powering our work abroad.
+				</p>
+				<p class="homes-note">
+					See our latest events on <a href={instagram} target="_blank" rel="noopener">Instagram</a>.
+				</p>
 			</div>
 		</section>
 
@@ -439,25 +425,9 @@ const homes = [
 		height: 34px;
 	}
 
-	.home-card {
-		border-top-color: var(--red);
-		text-align: center;
-	}
-
-	.home-badge {
-		width: 60px;
-		height: 60px;
-		margin: 0 auto 1rem;
-		display: grid;
-		place-items: center;
-		background: var(--sky);
-		border-radius: 50%;
-		color: var(--red);
-	}
-
-	.home-badge svg {
-		width: 28px;
-		height: 28px;
+	.section-intro {
+		max-width: 62ch;
+		font-size: 1.1rem;
 	}
 
 	.homes-note {
