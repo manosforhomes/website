@@ -1,0 +1,380 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const instagram = 'https://www.instagram.com/project_manosforhomes/';
+
+const values = [
+	{
+		title: 'Dignity',
+		text: 'A home is more than walls and a roof — it is safety, stability, and the foundation of a family’s future. We build with the same care we would want for our own families.',
+	},
+	{
+		title: 'Community',
+		text: 'Manos means hands. Every home we build is raised by many hands — volunteers, neighbors, partners — working together for the same goal.',
+	},
+	{
+		title: 'Commitment',
+		text: 'We serve communities on both sides: in Colombia, where we build, and in the United States, where we organize, partner, and grow our reach.',
+	},
+];
+---
+
+<Layout
+	title="Who We Are — Manos for Homes"
+	description="Manos for Homes is a 501(c)(3) non-profit foundation founded by Simon Aljure-Jauregui, building homes for impoverished families in Colombia."
+>
+	<header class="site-header">
+		<nav class="container nav">
+			<a href="/" class="brand">
+				<img src="/hand.png" alt="Manos for Homes hand logo" width="44" height="46" />
+				<span>Manos <em>for</em> Homes</span>
+			</a>
+			<div class="nav-links">
+				<a href="/">Home</a>
+				<a href="/who-we-are" aria-current="page">Who We Are</a>
+				<a href="/#work">What We Do</a>
+				<a href="/#involved">Get Involved</a>
+				<a href={instagram} target="_blank" rel="noopener" class="btn btn-yellow btn-small">Follow Us</a>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<section class="page-hero">
+			<div class="container narrow">
+				<p class="eyebrow light">Who We Are</p>
+				<h1>Many hands, one purpose.</h1>
+				<p class="hero-text">
+					Manos for Homes is a 501(c)(3) non-profit foundation serving impoverished communities in
+					Colombia and the United States.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container narrow">
+				<p class="eyebrow">Our Story</p>
+				<h2>From one idea to three homes — and counting</h2>
+				<p class="lead">
+					Manos for Homes was founded by Simon Aljure-Jauregui with a conviction that no family
+					should live without a safe place to call home. What began as one project in Colombia has
+					grown into a foundation that has built three homes for families in need, organized
+					community events, and formed partnerships with companies and foundations in both the
+					United States and Colombia.
+				</p>
+				<p class="lead">
+					We are a young organization with hands-on roots: our team plans, fundraises, and shows up
+					on the ground. Every dollar we raise moves us closer to the next build — and every build
+					changes a family's life for good.
+				</p>
+			</div>
+		</section>
+
+		<section class="section section-sky">
+			<div class="container">
+				<p class="eyebrow">Our Values</p>
+				<h2>What guides our work</h2>
+				<div class="cards">
+					{
+						values.map((v) => (
+							<article class="card">
+								<h3>{v.title}</h3>
+								<p>{v.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container narrow center">
+				<p class="eyebrow">Join Us</p>
+				<h2>Be part of the next build</h2>
+				<p class="lead">
+					Whether you volunteer your time, partner your organization, or support a build, your hands
+					make the difference.
+				</p>
+				<div class="actions">
+					<a href="/#involved" class="btn btn-blue">Get Involved</a>
+					<a href={instagram} target="_blank" rel="noopener" class="btn btn-outline-blue">Follow Our Journey</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<img src="/hand.png" alt="" width="40" height="42" />
+			<p>
+				<strong>Manos for Homes</strong> · Building Dreams<br />
+				Serving communities in Colombia and the USA
+			</p>
+			<a href={instagram} target="_blank" rel="noopener">@project_manosforhomes</a>
+		</div>
+	</footer>
+</Layout>
+
+<style>
+	.container {
+		width: min(1080px, 92%);
+		margin-inline: auto;
+	}
+
+	.narrow {
+		max-width: 720px;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--blue);
+		box-shadow: 0 2px 12px rgba(10, 70, 133, 0.25);
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: #fff;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 800;
+		font-size: 1.25rem;
+	}
+
+	.brand em {
+		color: var(--yellow);
+		font-style: normal;
+	}
+
+	.brand img {
+		border-radius: 10px;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.1rem;
+		flex-wrap: wrap;
+	}
+
+	.nav-links > a:not(.btn) {
+		color: #eaf5fe;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.95rem;
+	}
+
+	.nav-links > a:not(.btn):hover,
+	.nav-links > a[aria-current='page'] {
+		color: var(--yellow);
+	}
+
+	.btn {
+		display: inline-block;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-decoration: none;
+		padding: 0.65rem 1.5rem;
+		border-radius: 999px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(10, 70, 133, 0.25);
+	}
+
+	.btn-small {
+		padding: 0.4rem 1.1rem;
+		font-size: 0.9rem;
+	}
+
+	.btn-yellow {
+		background: var(--yellow);
+		color: var(--blue-deep);
+	}
+
+	.btn-blue {
+		background: var(--blue);
+		color: #fff;
+	}
+
+	.btn-outline-blue {
+		border: 2px solid var(--blue);
+		color: var(--blue);
+	}
+
+	.page-hero {
+		background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+		color: #fff;
+		padding: 4rem 0;
+	}
+
+	.page-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		color: var(--yellow);
+		margin: 0 0 0.75rem;
+	}
+
+	.hero-text {
+		font-size: 1.15rem;
+		color: #eaf5fe;
+		max-width: 560px;
+	}
+
+	.section {
+		padding: 4rem 0;
+	}
+
+	.section-sky {
+		background: #e8f4fd;
+	}
+
+	.eyebrow {
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-size: 0.85rem;
+		color: var(--red);
+		margin-bottom: 0.5rem;
+	}
+
+	.eyebrow.light {
+		color: var(--sky);
+	}
+
+	.section h2 {
+		font-size: clamp(1.7rem, 4vw, 2.3rem);
+		margin-bottom: 1rem;
+		color: var(--blue-deep);
+	}
+
+	.lead {
+		font-size: 1.12rem;
+	}
+
+	.lead + .lead {
+		margin-top: 1rem;
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.card {
+		background: #fff;
+		border-radius: 20px;
+		padding: 2rem 1.75rem;
+		box-shadow: 0 6px 24px rgba(10, 70, 133, 0.08);
+		border-top: 5px solid var(--yellow);
+	}
+
+	.card h3 {
+		font-size: 1.25rem;
+		color: var(--blue-dark);
+		margin: 0 0 0.5rem;
+	}
+
+	.actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+
+	.site-footer {
+		background: var(--blue-deep);
+		color: #dcedfb;
+		padding: 2.5rem 0;
+	}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.footer-inner img {
+		border-radius: 10px;
+	}
+
+	.footer-inner p {
+		flex: 1;
+		min-width: 220px;
+	}
+
+	.footer-inner a {
+		color: var(--yellow);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	@media (max-width: 700px) {
+		.nav {
+			flex-direction: column;
+			gap: 0.5rem;
+			padding-block: 0.75rem;
+		}
+
+		.nav-links {
+			justify-content: center;
+			gap: 0.5rem 1rem;
+		}
+
+		.nav-links > a:not(.btn) {
+			font-size: 0.9rem;
+		}
+
+		.page-hero {
+			padding: 3rem 0;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.card {
+			padding: 1.5rem 1.35rem;
+		}
+
+		.actions {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.actions .btn {
+			width: min(280px, 100%);
+			text-align: center;
+		}
+
+		.footer-inner {
+			flex-direction: column;
+			text-align: center;
+			gap: 0.75rem;
+		}
+	}
+</style>
