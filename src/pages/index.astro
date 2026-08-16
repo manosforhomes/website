@@ -3,21 +3,27 @@ import Layout from '../layouts/Layout.astro';
 
 const instagram = 'https://www.instagram.com/project_manosforhomes/';
 
+const icons = {
+	home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+	heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+	globe: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+};
+
 const pillars = [
 	{
-		icon: '🏠',
+		icon: icons.home,
 		title: 'Building Homes',
 		text: 'We build safe, dignified homes for impoverished families in Colombia — turning empty lots into places families can call their own.',
 	},
 	{
-		icon: '🤝',
+		icon: icons.heart,
 		title: 'Community Service',
-		text: 'From holiday celebrations to community events, we show up for the people we serve — in Colombia and here in the United States.',
+		text: 'From holiday celebrations to community events, we show up for the people we serve — in Colombia and in the United States.',
 	},
 	{
-		icon: '🌎',
+		icon: icons.globe,
 		title: 'Partnerships',
-		text: 'We team up with companies and fellow foundations — like the Sereniti Foundation — in the USA and Colombia to multiply our impact.',
+		text: 'We work with companies and fellow foundations — like the Sereniti Foundation — in the USA and Colombia to multiply our impact.',
 	},
 ];
 
@@ -99,7 +105,9 @@ const homes = [
 					{
 						pillars.map((p) => (
 							<article class="card">
-								<div class="card-icon">{p.icon}</div>
+								<div class="card-icon">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={p.icon} />
+								</div>
 								<h3>{p.title}</h3>
 								<p>{p.text}</p>
 							</article>
@@ -118,7 +126,9 @@ const homes = [
 					{
 						homes.map((h) => (
 							<article class="card home-card">
-								<div class="home-badge">🏠</div>
+								<div class="home-badge">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons.home} />
+								</div>
 								<h3>{h.name}</h3>
 								<p>{h.text}</p>
 							</article>
@@ -406,8 +416,13 @@ const homes = [
 	}
 
 	.card-icon {
-		font-size: 2.2rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1rem;
+		color: var(--blue);
+	}
+
+	.card-icon svg {
+		width: 34px;
+		height: 34px;
 	}
 
 	.home-card {
@@ -416,14 +431,19 @@ const homes = [
 	}
 
 	.home-badge {
-		width: 64px;
-		height: 64px;
+		width: 60px;
+		height: 60px;
 		margin: 0 auto 1rem;
 		display: grid;
 		place-items: center;
-		font-size: 1.8rem;
 		background: var(--sky);
 		border-radius: 50%;
+		color: var(--red);
+	}
+
+	.home-badge svg {
+		width: 28px;
+		height: 28px;
 	}
 
 	.homes-note {
@@ -460,5 +480,60 @@ const homes = [
 		color: var(--yellow);
 		font-weight: 700;
 		text-decoration: none;
+	}
+
+	/* Mobile */
+	@media (max-width: 700px) {
+		.nav {
+			flex-direction: column;
+			gap: 0.5rem;
+			padding-block: 0.75rem;
+		}
+
+		.nav-links {
+			justify-content: center;
+			gap: 0.5rem 1rem;
+		}
+
+		.nav-links > a:not(.btn) {
+			font-size: 0.9rem;
+		}
+
+		.hero {
+			padding: 3rem 0 4.5rem;
+		}
+
+		.hero-hand {
+			width: 130px;
+			height: auto;
+		}
+
+		.hero-text {
+			font-size: 1.05rem;
+		}
+
+		.hero-actions {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.hero-actions .btn {
+			width: min(280px, 100%);
+			text-align: center;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.card {
+			padding: 1.5rem 1.35rem;
+		}
+
+		.footer-inner {
+			flex-direction: column;
+			text-align: center;
+			gap: 0.75rem;
+		}
 	}
 </style>
