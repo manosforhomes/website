@@ -1,11 +1,464 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const instagram = 'https://www.instagram.com/project_manosforhomes/';
+
+const pillars = [
+	{
+		icon: '🏠',
+		title: 'Building Homes',
+		text: 'We build safe, dignified homes for impoverished families in Colombia — turning empty lots into places families can call their own.',
+	},
+	{
+		icon: '🤝',
+		title: 'Community Service',
+		text: 'From holiday celebrations to community events, we show up for the people we serve — in Colombia and here in the United States.',
+	},
+	{
+		icon: '🌎',
+		title: 'Partnerships',
+		text: 'We team up with companies and fellow foundations — like the Sereniti Foundation — in the USA and Colombia to multiply our impact.',
+	},
+];
+
+const homes = [
+	{
+		name: 'Casa #1',
+		text: 'Where it all began — our first home, built hand in hand with the community.',
+	},
+	{
+		name: 'Casa #2',
+		text: 'Proof that one home was only the beginning for Manos for Homes.',
+	},
+	{
+		name: 'Casa #3',
+		text: 'Our latest build — and we are just getting started.',
+	},
+];
 ---
 
 <Layout>
-	<Welcome />
+	<header class="site-header">
+		<nav class="container nav">
+			<a href="#top" class="brand">
+				<img src="/hand.png" alt="Manos for Homes hand logo" width="44" height="46" />
+				<span>Manos <em>for</em> Homes</span>
+			</a>
+			<div class="nav-links">
+				<a href="#mission">Mission</a>
+				<a href="#work">What We Do</a>
+				<a href="#homes">Our Homes</a>
+				<a href="#involved">Get Involved</a>
+				<a href={instagram} target="_blank" rel="noopener" class="btn btn-yellow btn-small">Follow Us</a>
+			</div>
+		</nav>
+	</header>
+
+	<main id="top">
+		<!-- Hero -->
+		<section class="hero">
+			<div class="container hero-inner">
+				<img src="/hand.png" alt="" class="hero-hand" width="180" height="188" />
+				<h1>Manos for Homes</h1>
+				<p class="tagline">Building Dreams</p>
+				<p class="hero-text">
+					A non-profit foundation building homes for impoverished families in Colombia and serving
+					communities in Colombia and the United States — one pair of hands at a time.
+				</p>
+				<div class="hero-actions">
+					<a href="#involved" class="btn btn-yellow">Get Involved</a>
+					<a href={instagram} target="_blank" rel="noopener" class="btn btn-outline">Follow Our Journey</a>
+				</div>
+			</div>
+			<svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+				<path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,55 L1440,90 L0,90 Z" fill="var(--paper)" />
+			</svg>
+		</section>
+
+		<!-- Mission -->
+		<section id="mission" class="section">
+			<div class="container narrow">
+				<p class="eyebrow">Our Mission</p>
+				<h2>Every family deserves a place to call home.</h2>
+				<p class="lead">
+					Manos for Homes — <em>manos</em> means <strong>hands</strong> in Spanish — was founded by
+					Simon Aljure-Jauregui with a simple belief: when a community lends its hands, families rise.
+					We provide community service to impoverished populations, build homes for families in need
+					in Colombia, and partner with companies and foundations in both the USA and Colombia to
+					support local and international communities.
+				</p>
+			</div>
+		</section>
+
+		<!-- What we do -->
+		<section id="work" class="section section-sky">
+			<div class="container">
+				<p class="eyebrow">What We Do</p>
+				<h2>Hands at work</h2>
+				<div class="cards">
+					{
+						pillars.map((p) => (
+							<article class="card">
+								<div class="card-icon">{p.icon}</div>
+								<h3>{p.title}</h3>
+								<p>{p.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- Homes / impact -->
+		<section id="homes" class="section">
+			<div class="container">
+				<p class="eyebrow">Our Impact</p>
+				<h2>Homes we've built in Colombia</h2>
+				<div class="cards homes">
+					{
+						homes.map((h) => (
+							<article class="card home-card">
+								<div class="home-badge">🏠</div>
+								<h3>{h.name}</h3>
+								<p>{h.text}</p>
+							</article>
+						))
+					}
+				</div>
+				<p class="homes-note">
+					Follow the story of every build on <a href={instagram} target="_blank" rel="noopener">our Instagram</a> — from foundation to finished home.
+				</p>
+			</div>
+		</section>
+
+		<!-- Partners -->
+		<section class="section section-blue">
+			<div class="container narrow center">
+				<p class="eyebrow light">Partners</p>
+				<h2>Stronger together</h2>
+				<p class="lead">
+					We are proud to work alongside companies and foundations in the United States and Colombia,
+					including the <strong>Sereniti Foundation</strong>. If your organization wants to help
+					families build a better future, we'd love to join hands with you.
+				</p>
+			</div>
+		</section>
+
+		<!-- Get involved -->
+		<section id="involved" class="section">
+			<div class="container narrow center">
+				<p class="eyebrow">Get Involved</p>
+				<h2>Lend a hand</h2>
+				<p class="lead">
+					Whether you want to volunteer, partner with us, or support our next build, reach out — every
+					pair of hands makes a difference.
+				</p>
+				<div class="hero-actions">
+					<a href={instagram} target="_blank" rel="noopener" class="btn btn-blue">Message us on Instagram</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<img src="/hand.png" alt="" width="40" height="42" />
+			<p>
+				<strong>Manos for Homes</strong> · Building Dreams<br />
+				Serving communities in Colombia and the USA
+			</p>
+			<a href={instagram} target="_blank" rel="noopener">@project_manosforhomes</a>
+		</div>
+	</footer>
 </Layout>
+
+<style>
+	.container {
+		width: min(1080px, 92%);
+		margin-inline: auto;
+	}
+
+	.narrow {
+		max-width: 720px;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	/* Header */
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--blue);
+		box-shadow: 0 2px 12px rgba(10, 70, 133, 0.25);
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: #fff;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 800;
+		font-size: 1.25rem;
+	}
+
+	.brand em {
+		color: var(--yellow);
+		font-style: normal;
+	}
+
+	.brand img {
+		border-radius: 10px;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.1rem;
+		flex-wrap: wrap;
+	}
+
+	.nav-links > a:not(.btn) {
+		color: #eaf5fe;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.95rem;
+	}
+
+	.nav-links > a:not(.btn):hover {
+		color: var(--yellow);
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-block;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-decoration: none;
+		padding: 0.65rem 1.5rem;
+		border-radius: 999px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(10, 70, 133, 0.25);
+	}
+
+	.btn-small {
+		padding: 0.4rem 1.1rem;
+		font-size: 0.9rem;
+	}
+
+	.btn-yellow {
+		background: var(--yellow);
+		color: var(--blue-deep);
+	}
+
+	.btn-blue {
+		background: var(--blue);
+		color: #fff;
+	}
+
+	.btn-outline {
+		border: 2px solid #fff;
+		color: #fff;
+	}
+
+	/* Hero */
+	.hero {
+		position: relative;
+		background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+		color: #fff;
+		text-align: center;
+		padding: 4.5rem 0 6rem;
+	}
+
+	.hero-hand {
+		margin: 0 auto 1.5rem;
+		border-radius: 28px;
+		box-shadow: 0 10px 40px rgba(10, 70, 133, 0.4);
+	}
+
+	.hero h1 {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 800;
+		color: var(--yellow);
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+	}
+
+	.tagline {
+		font-family: 'Baloo 2', sans-serif;
+		font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+		letter-spacing: 0.35em;
+		text-transform: uppercase;
+		color: var(--sky);
+		margin-top: 0.25rem;
+	}
+
+	.hero-text {
+		max-width: 620px;
+		margin: 1.5rem auto 2rem;
+		font-size: 1.15rem;
+		color: #eaf5fe;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+
+	.hero-wave {
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 60px;
+	}
+
+	/* Sections */
+	.section {
+		padding: 4.5rem 0;
+	}
+
+	.section-sky {
+		background: #e8f4fd;
+	}
+
+	.section-blue {
+		background: linear-gradient(160deg, var(--blue-dark), var(--blue-deep));
+		color: #fff;
+	}
+
+	.section-blue h2 {
+		color: var(--yellow);
+	}
+
+	.section-blue .lead {
+		color: #dcedfb;
+	}
+
+	.eyebrow {
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-size: 0.85rem;
+		color: var(--red);
+		margin-bottom: 0.5rem;
+	}
+
+	.eyebrow.light {
+		color: var(--yellow);
+	}
+
+	.section h2 {
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
+		margin-bottom: 1rem;
+		color: var(--blue-deep);
+	}
+
+	.section-blue h2 {
+		color: var(--yellow);
+	}
+
+	.lead {
+		font-size: 1.15rem;
+	}
+
+	/* Cards */
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.card {
+		background: #fff;
+		border-radius: 20px;
+		padding: 2rem 1.75rem;
+		box-shadow: 0 6px 24px rgba(10, 70, 133, 0.08);
+		border-top: 5px solid var(--yellow);
+	}
+
+	.card h3 {
+		font-size: 1.3rem;
+		color: var(--blue-dark);
+		margin-bottom: 0.5rem;
+	}
+
+	.card-icon {
+		font-size: 2.2rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.home-card {
+		border-top-color: var(--red);
+		text-align: center;
+	}
+
+	.home-badge {
+		width: 64px;
+		height: 64px;
+		margin: 0 auto 1rem;
+		display: grid;
+		place-items: center;
+		font-size: 1.8rem;
+		background: var(--sky);
+		border-radius: 50%;
+	}
+
+	.homes-note {
+		margin-top: 2rem;
+		text-align: center;
+		font-size: 1.05rem;
+	}
+
+	/* Footer */
+	.site-footer {
+		background: var(--blue-deep);
+		color: #dcedfb;
+		padding: 2.5rem 0;
+	}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.footer-inner img {
+		border-radius: 10px;
+	}
+
+	.footer-inner p {
+		flex: 1;
+		min-width: 220px;
+	}
+
+	.footer-inner a {
+		color: var(--yellow);
+		font-weight: 700;
+		text-decoration: none;
+	}
+</style>
