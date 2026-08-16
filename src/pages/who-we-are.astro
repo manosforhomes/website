@@ -52,22 +52,32 @@ const values = [
 		</section>
 
 		<section class="section">
-			<div class="container narrow">
-				<p class="eyebrow">Our Story</p>
-				<h2>From one idea to three homes — and counting</h2>
-				<p class="lead">
-					Manos for Homes was founded by Simon Aljure-Jauregui with a conviction that no family
-					should live without a safe place to call home. What began as one project in Colombia has
-					grown into a foundation that has built three homes for families in need, organized
-					community events, and formed partnerships with companies and foundations in both the
-					United States and Colombia.
-				</p>
-				<p class="lead">
-					We are a young organization with hands-on roots: our team plans, fundraises, and shows up
-					on the ground. Every dollar we raise moves us closer to the next build — and every build
-					changes a family's life for good.
-				</p>
+			<div class="container story">
+				<div class="story-text">
+					<p class="eyebrow">Our Story</p>
+					<h2>From one idea to three homes — and counting</h2>
+					<p class="lead">
+						Manos for Homes was founded by Simon Aljure-Jauregui with a conviction that no family
+						should live without a safe place to call home. What began as one project in Colombia has
+						grown into a foundation that has built three homes for families in need, organized
+						community events, and formed partnerships with companies and foundations in both the
+						United States and Colombia.
+					</p>
+					<p class="lead">
+						We are a young organization with hands-on roots: our team plans, fundraises, and shows up
+						on the ground. Every dollar we raise moves us closer to the next build — and every build
+						changes a family's life for good.
+					</p>
+				</div>
+				<figure class="story-photo">
+					<img src="/photos/build-ladder.jpg" alt="A young volunteer in a hard hat climbing a ladder while building a home in the Colombian Andes" loading="lazy" />
+				</figure>
 			</div>
+		</section>
+
+		<section class="photo-band">
+			<img src="/photos/volunteer-group.jpg" alt="Volunteers and family members celebrating in front of a newly built home in Colombia" loading="lazy" />
+			<p class="photo-caption container">Volunteers and family members in front of a newly finished home in Colombia.</p>
 		</section>
 
 		<section class="section section-sky">
@@ -275,6 +285,43 @@ const values = [
 		margin-top: 1rem;
 	}
 
+	.story {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.story-photo {
+		margin: 0;
+	}
+
+	.story-photo img {
+		width: 100%;
+		border-radius: 20px;
+		box-shadow: 0 10px 32px rgba(10, 70, 133, 0.18);
+	}
+
+	.photo-band {
+		background: var(--blue-deep);
+		padding-bottom: 1.25rem;
+	}
+
+	.photo-band img {
+		width: 100%;
+		max-height: 560px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.photo-caption {
+		display: block;
+		color: #dcedfb;
+		font-size: 0.92rem;
+		padding-top: 0.9rem;
+		text-align: center;
+	}
+
 	.cards {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -351,6 +398,11 @@ const values = [
 
 		.page-hero {
 			padding: 3rem 0;
+		}
+
+		.story {
+			grid-template-columns: 1fr;
+			gap: 1.75rem;
 		}
 
 		.section {

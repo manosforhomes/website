@@ -141,6 +141,20 @@ const homes = [
 			</div>
 		</section>
 
+		<!-- Gallery -->
+		<section class="section section-sky">
+			<div class="container">
+				<p class="eyebrow">On the Ground</p>
+				<h2>Hands at work in Colombia</h2>
+				<div class="gallery">
+					<img src="/photos/roof-team.jpg" alt="Two volunteers securing a corrugated roof with mountains in the background" loading="lazy" />
+					<img src="/photos/hands-together.jpg" alt="An adult and a young volunteer hammering together during a build" loading="lazy" />
+					<img src="/photos/team-beam.jpg" alt="Volunteers working together on a structural beam" loading="lazy" />
+					<img src="/photos/build-hammer.jpg" alt="A volunteer hammering during construction of a home" loading="lazy" />
+				</div>
+			</div>
+		</section>
+
 		<!-- Partners -->
 		<section class="section section-blue">
 			<div class="container narrow center">
@@ -450,6 +464,22 @@ const homes = [
 		margin-top: 2rem;
 		text-align: center;
 		font-size: 1.05rem;
+	}
+
+	/* Gallery */
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.gallery img {
+		width: 100%;
+		height: 260px;
+		object-fit: cover;
+		border-radius: 16px;
+		box-shadow: 0 6px 20px rgba(10, 70, 133, 0.12);
 	}
 
 	/* Footer */
