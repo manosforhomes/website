@@ -3,6 +3,15 @@ import Layout from '../layouts/Layout.astro';
 
 const instagram = 'https://www.instagram.com/project_manosforhomes/';
 
+const team = [
+	{ name: 'Simon Aljure-Jauregui', role: 'President & Founder', photo: '' },
+	{ name: 'Cristina Alvarez', role: 'Director of Communications & Marketing', photo: '' },
+	{ name: 'Rishan Borthakur', role: 'Director of Operations & Volunteer Coordination', photo: '' },
+	{ name: 'Matheus Parra', role: 'Director of Fundraising', photo: '' },
+	{ name: 'Gabriella Otero', role: 'Director of Community Outreach', photo: '' },
+	{ name: 'Gabriella Aljure-Jauregui', role: 'Young Ambassador', photo: '' },
+];
+
 const values = [
 	{
 		title: 'Dignity',
@@ -78,6 +87,34 @@ const values = [
 		<section class="photo-band">
 			<img src="/photos/team-group.jpg" alt="Volunteers posing together in hard hats during a home build in Colombia" loading="lazy" />
 			<p class="photo-caption container">Volunteers and family members in front of a newly finished home in Colombia.</p>
+		</section>
+
+		<section class="section" id="team">
+			<div class="container">
+				<p class="eyebrow">Our Team</p>
+				<h2>Founder and directors</h2>
+				<p class="lead team-intro">
+					A board of young leaders committed to building — literally and figuratively — toward our
+					goals.
+				</p>
+				<div class="team-grid">
+					{
+						team.map((m) => (
+							<article class="member">
+								{m.photo ? (
+									<img class="member-photo" src={m.photo} alt={`Portrait of ${m.name}`} loading="lazy" />
+								) : (
+									<div class="member-photo member-initials">
+										{m.name.split(' ').slice(0, 2).map((w) => w[0]).join('')}
+									</div>
+								)}
+								<h3>{m.name}</h3>
+								<p class="member-role">{m.role}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
 		</section>
 
 		<section class="section section-sky">
@@ -320,6 +357,54 @@ const values = [
 		font-size: 0.92rem;
 		padding-top: 0.9rem;
 		text-align: center;
+	}
+
+	/* Team */
+	.team-intro {
+		max-width: 56ch;
+	}
+
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 2rem 1.5rem;
+		margin-top: 2.5rem;
+		max-width: 980px;
+	}
+
+	.member {
+		text-align: center;
+	}
+
+	.member-photo {
+		width: 148px;
+		height: 148px;
+		border-radius: 50%;
+		object-fit: cover;
+		margin: 0 auto 1rem;
+		display: block;
+		box-shadow: 0 6px 20px rgba(10, 70, 133, 0.18);
+	}
+
+	.member-initials {
+		display: grid;
+		place-items: center;
+		background: var(--sky);
+		color: var(--blue-dark);
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 800;
+		font-size: 2.2rem;
+	}
+
+	.member h3 {
+		font-size: 1.08rem;
+		color: var(--blue-deep);
+		margin: 0 0 0.25rem;
+	}
+
+	.member-role {
+		font-size: 0.9rem;
+		color: var(--muted, #5a7089);
 	}
 
 	.cards {
