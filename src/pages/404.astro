@@ -1,14 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Page not found — Manos for Homes">
+	<Header />
 	<main class="notfound">
 		<img src="/hand.png" alt="" width="120" height="126" />
 		<h1>Page not found</h1>
 		<p>The page you're looking for doesn't exist — but our work continues.</p>
 		<a href="/" class="btn">Back to home</a>
 	</main>
+	<Footer />
 </Layout>
 
 <style>

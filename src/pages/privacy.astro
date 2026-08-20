@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+	title="Privacy Policy — Manos for Homes"
+	description="How Manos for Homes handles information on this website."
+>
+	<Header />
+
+	<main class="legal container">
+		<p class="eyebrow">Legal</p>
+		<h1>Privacy Policy</h1>
+		<p class="updated">Last updated: August 20, 2026</p>
+
+		<p>
+			Manos for Homes ("we," "us") is a non-profit foundation. This policy explains what information
+			this website handles and how. We keep it simple, because our website keeps things simple.
+		</p>
+
+		<h2>Information we collect on this website</h2>
+		<p>
+			This website is informational. It has no user accounts, no forms, and does not itself collect,
+			store, or sell your personal information. We do not use advertising or tracking cookies.
+		</p>
+		<p>
+			Like nearly every website, our hosting provider may automatically record standard technical
+			logs (such as IP addresses and browser type) for security and reliability purposes.
+		</p>
+
+		<h2>Donations</h2>
+		<p>
+			Donations are processed by third-party payment platforms, not by this website. When you
+			donate, the information you provide (such as your name, email, and payment details) is
+			collected and handled by the donation platform under its own privacy policy, which we
+			encourage you to review. We receive donor information from the platform only as needed to
+			acknowledge gifts and issue receipts, and we do not sell or rent donor information.
+		</p>
+
+		<h2>Links to other sites</h2>
+		<p>
+			Our site links to third-party sites — such as Instagram and our partners' websites. Those
+			sites have their own privacy practices, which we do not control.
+		</p>
+
+		<h2>Children's privacy</h2>
+		<p>
+			Our website is a general-audience site and does not knowingly collect personal information
+			from children.
+		</p>
+
+		<h2>Photos</h2>
+		<p>
+			Photos on this site show our volunteers, team, and community events, and are used with
+			permission. If you appear in a photo and would like it removed, contact us and we will take
+			it down promptly.
+		</p>
+
+		<h2>Changes to this policy</h2>
+		<p>
+			If our practices change — for example, if we add a newsletter or contact form — we will update
+			this policy and the date above.
+		</p>
+
+		<h2>Contact us</h2>
+		<p>
+			Questions about this policy or your information? Reach us on Instagram at <a href="https://www.instagram.com/project_manosforhomes/" target="_blank" rel="noopener">@project_manosforhomes</a>.
+		</p>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.container {
+		width: min(760px, 92%);
+		margin-inline: auto;
+	}
+
+	.legal {
+		padding: 3.5rem 0 4.5rem;
+	}
+
+	.eyebrow {
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-size: 0.85rem;
+		color: var(--red);
+		margin: 0 0 0.5rem;
+	}
+
+	h1 {
+		color: var(--blue-deep);
+		font-size: clamp(1.9rem, 4vw, 2.5rem);
+		margin: 0 0 0.25rem;
+	}
+
+	.updated {
+		color: #5a7089;
+		font-size: 0.9rem;
+		margin: 0 0 2rem;
+	}
+
+	h2 {
+		color: var(--blue-dark);
+		font-size: 1.25rem;
+		margin: 2rem 0 0.5rem;
+	}
+
+	p {
+		margin: 0 0 1rem;
+	}
+</style>

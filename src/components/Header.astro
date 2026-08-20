@@ -1,0 +1,117 @@
+---
+const instagram = 'https://www.instagram.com/project_manosforhomes/';
+const { current = '' } = Astro.props;
+---
+
+<header class="site-header">
+	<nav class="container nav">
+		<a href="/" class="brand">
+			<img src="/hand.png" alt="Manos for Homes hand logo" width="44" height="46" />
+			<span>Manos <em>for</em> Homes</span>
+		</a>
+		<div class="nav-links">
+			<a href="/who-we-are" aria-current={current === 'who-we-are' ? 'page' : undefined}>Who We Are</a>
+			<a href="/#work">What We Do</a>
+			<a href="/#homes">Our Work</a>
+			<a href="/#involved">Get Involved</a>
+			<a href={instagram} target="_blank" rel="noopener" class="btn-follow">Follow Us</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--blue);
+		box-shadow: 0 2px 12px rgba(10, 70, 133, 0.25);
+	}
+
+	.container {
+		width: min(1080px, 92%);
+		margin-inline: auto;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+		color: #fff;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 800;
+		font-size: 1.25rem;
+	}
+
+	.brand em {
+		color: var(--yellow);
+		font-style: normal;
+	}
+
+	.brand img {
+		border-radius: 10px;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.1rem;
+		flex-wrap: wrap;
+	}
+
+	.nav-links > a:not(.btn-follow) {
+		color: #eaf5fe;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 0.95rem;
+	}
+
+	.nav-links > a:not(.btn-follow):hover,
+	.nav-links > a[aria-current='page'] {
+		color: var(--yellow);
+	}
+
+	.btn-follow {
+		display: inline-block;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-decoration: none;
+		padding: 0.4rem 1.1rem;
+		font-size: 0.9rem;
+		border-radius: 999px;
+		background: var(--yellow);
+		color: var(--blue-deep);
+		transition: transform 0.15s ease;
+	}
+
+	.btn-follow:hover {
+		transform: translateY(-2px);
+	}
+
+	@media (max-width: 700px) {
+		.nav {
+			flex-direction: column;
+			gap: 0.5rem;
+			padding-block: 0.75rem;
+		}
+
+		.nav-links {
+			justify-content: center;
+			gap: 0.5rem 1rem;
+		}
+
+		.nav-links > a:not(.btn-follow) {
+			font-size: 0.9rem;
+		}
+	}
+</style>

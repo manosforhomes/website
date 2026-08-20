@@ -1,0 +1,94 @@
+---
+const instagram = 'https://www.instagram.com/project_manosforhomes/';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container footer-inner">
+		<img src="/hand.png" alt="" width="40" height="42" />
+		<p>
+			<strong>Manos for Homes</strong> · Building Dreams<br />
+			Serving communities in the USA and Colombia
+		</p>
+		<a href={instagram} target="_blank" rel="noopener" class="ig">@project_manosforhomes</a>
+	</div>
+	<div class="container footer-legal">
+		<span>© {year} Manos for Homes. All rights reserved.</span>
+		<nav>
+			<a href="/privacy">Privacy Policy</a>
+			<a href="/terms">Terms of Use</a>
+		</nav>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--blue-deep);
+		color: #dcedfb;
+		padding: 2.5rem 0 1.5rem;
+	}
+
+	.container {
+		width: min(1080px, 92%);
+		margin-inline: auto;
+	}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.footer-inner img {
+		border-radius: 10px;
+	}
+
+	.footer-inner p {
+		flex: 1;
+		min-width: 220px;
+		margin: 0;
+	}
+
+	.ig {
+		color: var(--yellow);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.footer-legal {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-top: 1.75rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid rgba(220, 237, 251, 0.25);
+		font-size: 0.85rem;
+	}
+
+	.footer-legal nav {
+		display: flex;
+		gap: 1.25rem;
+	}
+
+	.footer-legal a {
+		color: #dcedfb;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.footer-legal a:hover {
+		color: var(--yellow);
+	}
+
+	@media (max-width: 700px) {
+		.footer-inner,
+		.footer-legal {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const instagram = 'https://www.instagram.com/project_manosforhomes/';
 
@@ -32,21 +34,7 @@ const values = [
 	title="Who We Are — Manos for Homes"
 	description="Manos for Homes is a non-profit foundation founded by Simon Aljure-Jauregui, building homes for impoverished families in Colombia."
 >
-	<header class="site-header">
-		<nav class="container nav">
-			<a href="/" class="brand">
-				<img src="/hand.png" alt="Manos for Homes hand logo" width="44" height="46" />
-				<span>Manos <em>for</em> Homes</span>
-			</a>
-			<div class="nav-links">
-				<a href="/">Home</a>
-				<a href="/who-we-are" aria-current="page">Who We Are</a>
-				<a href="/#work">What We Do</a>
-				<a href="/#involved">Get Involved</a>
-				<a href={instagram} target="_blank" rel="noopener" class="btn btn-yellow btn-small">Follow Us</a>
-			</div>
-		</nav>
-	</header>
+	<Header current="who-we-are" />
 
 	<main>
 		<section class="page-hero">
@@ -150,16 +138,7 @@ const values = [
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<div class="container footer-inner">
-			<img src="/hand.png" alt="" width="40" height="42" />
-			<p>
-				<strong>Manos for Homes</strong> · Building Dreams<br />
-				Serving communities in Colombia and the USA
-			</p>
-			<a href={instagram} target="_blank" rel="noopener">@project_manosforhomes</a>
-		</div>
-	</footer>
+	<Footer />
 </Layout>
 
 <style>
@@ -176,62 +155,6 @@ const values = [
 		text-align: center;
 	}
 
-	.site-header {
-		position: sticky;
-		top: 0;
-		z-index: 10;
-		background: var(--blue);
-		box-shadow: 0 2px 12px rgba(10, 70, 133, 0.25);
-	}
-
-	.nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1rem;
-		padding-block: 0.6rem;
-		flex-wrap: wrap;
-	}
-
-	.brand {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		text-decoration: none;
-		color: #fff;
-		font-family: 'Baloo 2', sans-serif;
-		font-weight: 800;
-		font-size: 1.25rem;
-	}
-
-	.brand em {
-		color: var(--yellow);
-		font-style: normal;
-	}
-
-	.brand img {
-		border-radius: 10px;
-	}
-
-	.nav-links {
-		display: flex;
-		align-items: center;
-		gap: 1.1rem;
-		flex-wrap: wrap;
-	}
-
-	.nav-links > a:not(.btn) {
-		color: #eaf5fe;
-		text-decoration: none;
-		font-weight: 700;
-		font-size: 0.95rem;
-	}
-
-	.nav-links > a:not(.btn):hover,
-	.nav-links > a[aria-current='page'] {
-		color: var(--yellow);
-	}
-
 	.btn {
 		display: inline-block;
 		font-family: 'Baloo 2', sans-serif;
@@ -245,11 +168,6 @@ const values = [
 	.btn:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 6px 18px rgba(10, 70, 133, 0.25);
-	}
-
-	.btn-small {
-		padding: 0.4rem 1.1rem;
-		font-size: 0.9rem;
 	}
 
 	.btn-yellow {
@@ -436,51 +354,7 @@ const values = [
 		margin-top: 1.5rem;
 	}
 
-	.site-footer {
-		background: var(--blue-deep);
-		color: #dcedfb;
-		padding: 2.5rem 0;
-	}
-
-	.footer-inner {
-		display: flex;
-		align-items: center;
-		gap: 1.25rem;
-		flex-wrap: wrap;
-		justify-content: space-between;
-	}
-
-	.footer-inner img {
-		border-radius: 10px;
-	}
-
-	.footer-inner p {
-		flex: 1;
-		min-width: 220px;
-	}
-
-	.footer-inner a {
-		color: var(--yellow);
-		font-weight: 700;
-		text-decoration: none;
-	}
-
 	@media (max-width: 700px) {
-		.nav {
-			flex-direction: column;
-			gap: 0.5rem;
-			padding-block: 0.75rem;
-		}
-
-		.nav-links {
-			justify-content: center;
-			gap: 0.5rem 1rem;
-		}
-
-		.nav-links > a:not(.btn) {
-			font-size: 0.9rem;
-		}
-
 		.page-hero {
 			padding: 3rem 0;
 		}
@@ -506,12 +380,6 @@ const values = [
 		.actions .btn {
 			width: min(280px, 100%);
 			text-align: center;
-		}
-
-		.footer-inner {
-			flex-direction: column;
-			text-align: center;
-			gap: 0.75rem;
 		}
 	}
 </style>
