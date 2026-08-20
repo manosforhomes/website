@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page not found — Manos for Homes">
+	<main class="notfound">
+		<img src="/hand.png" alt="" width="120" height="126" />
+		<h1>Page not found</h1>
+		<p>The page you're looking for doesn't exist — but our work continues.</p>
+		<a href="/" class="btn">Back to home</a>
+	</main>
+</Layout>
+
+<style>
+	.notfound {
+		min-height: 70vh;
+		display: grid;
+		place-content: center;
+		justify-items: center;
+		text-align: center;
+		gap: 1rem;
+		padding: 2rem;
+	}
+
+	.notfound img {
+		border-radius: 20px;
+	}
+
+	.notfound h1 {
+		color: var(--blue-deep);
+		font-size: 2rem;
+	}
+
+	.btn {
+		display: inline-block;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-decoration: none;
+		padding: 0.65rem 1.5rem;
+		border-radius: 999px;
+		background: var(--blue);
+		color: #fff;
+	}
+</style>
