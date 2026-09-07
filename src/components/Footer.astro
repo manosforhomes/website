@@ -10,7 +10,10 @@ const year = new Date().getFullYear();
 			<strong>Manos for Homes</strong> · Building Dreams<br />
 			Serving communities in the USA and Colombia
 		</p>
-		<a href={instagram} target="_blank" rel="noopener" class="ig">@project_manosforhomes</a>
+		<div class="contact">
+			<a href="mailto:info@manosforhomes.org" class="ig">info@manosforhomes.org</a>
+			<a href={instagram} target="_blank" rel="noopener" class="ig">@project_manosforhomes</a>
+		</div>
 	</div>
 	<div class="container footer-legal">
 		<span>© {year} Manos for Homes. All rights reserved.</span>
@@ -51,10 +54,22 @@ const year = new Date().getFullYear();
 		margin: 0;
 	}
 
+	.contact {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		text-align: right;
+	}
+
 	.ig {
 		color: var(--yellow);
 		font-weight: 700;
 		text-decoration: none;
+	}
+
+	.ig:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.footer-legal {
@@ -88,6 +103,10 @@ const year = new Date().getFullYear();
 		.footer-inner,
 		.footer-legal {
 			flex-direction: column;
+			text-align: center;
+		}
+
+		.contact {
 			text-align: center;
 		}
 	}
