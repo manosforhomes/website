@@ -1,0 +1,475 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { donateUrl, donateEmbedUrl, donateProvider, email, instagram } from '../site';
+
+const mailto = `mailto:${email}?subject=${encodeURIComponent('Donation to Manos for Homes')}`;
+const hasOnlineDonations = Boolean(donateUrl);
+
+const icons = {
+	home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+	tools: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+	users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+	shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+	lock: '<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+	heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+};
+
+const uses = [
+	{
+		icon: icons.tools,
+		title: 'Building materials',
+		text: 'Cement, lumber, roofing, and everything it takes to turn an empty lot into a safe, dignified home for a family in Colombia.',
+	},
+	{
+		icon: icons.home,
+		title: 'The next build',
+		text: 'Every gift moves us closer to breaking ground on the next home. Our volunteers bring the hands; your support brings the materials.',
+	},
+	{
+		icon: icons.users,
+		title: 'Community events',
+		text: 'Holiday celebrations, food drives, and gatherings in Miami that bring neighbors together and power our work abroad.',
+	},
+];
+
+const otherWays = [
+	{
+		title: 'Partner with us',
+		text: 'Companies and foundations can sponsor a build, match employee gifts, or host a fundraiser with us.',
+		cta: 'Email us about partnering',
+		href: `mailto:${email}?subject=${encodeURIComponent('Partnership with Manos for Homes')}`,
+	},
+	{
+		title: 'Volunteer',
+		text: 'Join a build in Colombia or lend a hand at a community event in Miami. Every pair of hands makes a difference.',
+		cta: 'Email us about volunteering',
+		href: `mailto:${email}?subject=${encodeURIComponent('Volunteering with Manos for Homes')}`,
+	},
+	{
+		title: 'Give by check or transfer',
+		text: 'Prefer to give offline or make a larger gift? Write to us and we will send you the details.',
+		cta: 'Email us',
+		href: mailto,
+	},
+];
+---
+
+<Layout
+	title="Donate — Manos for Homes"
+	description="Support Manos for Homes and help build safe, dignified homes for families in need in Colombia. Every gift brings us closer to the next build."
+>
+	<Header current="donate" />
+
+	<main>
+		<section class="page-hero">
+			<div class="container narrow">
+				<p class="eyebrow light">Donate</p>
+				<h1>Help us build the next home.</h1>
+				<p class="hero-text">
+					Your gift buys the cement, lumber, and roofing that turn an empty lot into a home. Our
+					volunteers bring the hands. You bring the materials.
+				</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container donate-grid">
+				<div class="donate-copy">
+					<p class="eyebrow">Make a gift</p>
+					<h2>Every dollar builds.</h2>
+					<p class="lead">
+						We are a volunteer-run foundation with hands-on roots. Donations go toward building
+						homes for families in need in Colombia and the community events that make our work
+						possible.
+					</p>
+					{hasOnlineDonations && (
+					<ul class="assurances">
+						<li>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons.lock} />
+							<span>Secure checkout. Card, Apple Pay, Google Pay, or US bank transfer.</span>
+						</li>
+						<li>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons.heart} />
+							<span>100% of your gift reaches Manos for Homes. Zeffy charges us no fees.</span>
+						</li>
+						<li>
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={icons.shield} />
+							<span>You will receive a receipt by email for every donation.</span>
+						</li>
+					</ul>
+					)}
+				</div>
+
+				<div class="donate-box">
+					{
+						hasOnlineDonations && donateEmbedUrl ? (
+							<div class="donate-embed">
+								<div data-zeffy-embed data-form-url={new URL(donateEmbedUrl).pathname} />
+								<div data-zeffy-embed-fallback style="display:none;">
+									<iframe
+										title="Donation form"
+										data-zeffy-embed-src={donateEmbedUrl}
+										class="donate-embed-fallback"
+										allow="payment"
+									/>
+								</div>
+								<script
+									is:inline
+									src="https://www.zeffy.com/embed/v2/zeffy-embed.js"
+									onerror="document.querySelectorAll('[data-zeffy-embed-fallback]').forEach(function(el){el.style.display='block';el.querySelectorAll('iframe[data-zeffy-embed-src]').forEach(function(f){f.src=f.getAttribute('data-zeffy-embed-src');});});"
+								/>
+								<p class="fineprint center">
+									Prefer a separate page? <a href={donateUrl} target="_blank" rel="noopener">Open the donation form</a>.
+								</p>
+							</div>
+						) : hasOnlineDonations ? (
+							<div class="donate-cta">
+								<h3>Give online</h3>
+								<p>You will be taken to our secure donation page to choose an amount.</p>
+								<a href={donateUrl} class="btn btn-yellow btn-big" target="_blank" rel="noopener">Donate now</a>
+								<p class="fineprint">Processed securely by {donateProvider}.</p>
+							</div>
+						) : (
+							<div class="donate-cta">
+								<h3>Give today</h3>
+								<p>
+									Online giving is on its way. In the meantime, send us an email and we will get
+									right back to you with the simplest way to make your gift.
+								</p>
+								<a href={mailto} class="btn btn-yellow btn-big">Email us to donate</a>
+								<p class="fineprint">{email}</p>
+							</div>
+						)
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-sky">
+			<div class="container">
+				<p class="eyebrow">Where your gift goes</p>
+				<h2>Hands at work, funded by you</h2>
+				<div class="cards">
+					{
+						uses.map((u) => (
+							<article class="card">
+								<div class="card-icon">
+									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={u.icon} />
+								</div>
+								<h3>{u.title}</h3>
+								<p>{u.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<p class="eyebrow">Other ways to give</p>
+				<h2>More than money</h2>
+				<div class="ways">
+					{
+						otherWays.map((w) => (
+							<article class="way">
+								<h3>{w.title}</h3>
+								<p>{w.text}</p>
+								<a href={w.href}>{w.cta}</a>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<section class="section section-blue">
+			<div class="container narrow center">
+				<p class="eyebrow light">Good to know</p>
+				<h2>Tax information</h2>
+				<p class="lead">
+					Manos for Homes has applied for recognition as a tax-exempt organization under Section
+					501(c)(3) of the Internal Revenue Code, and that application is pending. If granted,
+					tax-exempt status generally applies retroactively. Please consult your tax advisor about
+					the deductibility of your contribution. Questions? Write to{' '}
+					<a href={`mailto:${email}`}>{email}</a>{' '}or find us on{' '}
+					<a href={instagram} target="_blank" rel="noopener">Instagram</a>.
+				</p>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.container {
+		width: min(1080px, 92%);
+		margin-inline: auto;
+	}
+
+	.narrow {
+		max-width: 720px;
+	}
+
+	.center {
+		text-align: center;
+	}
+
+	.btn {
+		display: inline-block;
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-decoration: none;
+		padding: 0.65rem 1.5rem;
+		border-radius: 999px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+
+	.btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 6px 18px rgba(10, 70, 133, 0.25);
+	}
+
+	.btn-yellow {
+		background: var(--yellow);
+		color: var(--blue-deep);
+	}
+
+	.btn-big {
+		font-size: 1.15rem;
+		padding: 0.85rem 2.25rem;
+	}
+
+	.page-hero {
+		background: linear-gradient(160deg, var(--blue) 0%, var(--blue-dark) 100%);
+		color: #fff;
+		padding: 4rem 0;
+	}
+
+	.page-hero h1 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 800;
+		color: var(--yellow);
+		margin: 0 0 0.75rem;
+	}
+
+	.hero-text {
+		font-size: 1.15rem;
+		color: #eaf5fe;
+		max-width: 560px;
+	}
+
+	.section {
+		padding: 4.5rem 0;
+	}
+
+	.section-sky {
+		background: #e8f4fd;
+	}
+
+	.section-blue {
+		background: linear-gradient(160deg, var(--blue-dark), var(--blue-deep));
+		color: #fff;
+	}
+
+	.section-blue .lead {
+		color: #dcedfb;
+	}
+
+	.section-blue a {
+		color: var(--yellow);
+	}
+
+	.eyebrow {
+		font-family: 'Baloo 2', sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-size: 0.85rem;
+		color: var(--red);
+		margin-bottom: 0.5rem;
+	}
+
+	.eyebrow.light {
+		color: var(--yellow);
+	}
+
+	.section h2 {
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
+		margin-bottom: 1rem;
+		color: var(--blue-deep);
+	}
+
+	.section.section-blue h2 {
+		color: var(--yellow);
+	}
+
+	.lead {
+		font-size: 1.15rem;
+	}
+
+	/* Donate section */
+	.donate-grid {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.assurances {
+		list-style: none;
+		margin-top: 1.75rem;
+		display: grid;
+		gap: 0.85rem;
+	}
+
+	.assurances li {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.75rem;
+		color: #3b5068;
+	}
+
+	.assurances svg {
+		flex: none;
+		width: 22px;
+		height: 22px;
+		color: var(--blue);
+		margin-top: 0.15rem;
+	}
+
+	.donate-box {
+		background: #fff;
+		border-radius: 20px;
+		box-shadow: 0 6px 24px rgba(10, 70, 133, 0.1);
+		border-top: 5px solid var(--yellow);
+		overflow: hidden;
+	}
+
+	.donate-cta {
+		padding: 2.25rem 2rem;
+		text-align: center;
+	}
+
+	.donate-cta h3 {
+		font-size: 1.5rem;
+		color: var(--blue-dark);
+		margin-bottom: 0.5rem;
+	}
+
+	.donate-cta p {
+		margin-bottom: 1.5rem;
+	}
+
+	.fineprint {
+		margin: 1.25rem 0 0 !important;
+		font-size: 0.88rem;
+		color: #5a7089;
+	}
+
+	.donate-embed {
+		padding: 0.5rem 0.5rem 1rem;
+	}
+
+	.donate-embed-fallback {
+		display: block;
+		width: 100%;
+		min-height: 900px;
+		border: 0;
+	}
+
+	.donate-embed .fineprint {
+		margin: 0.25rem 0 0;
+	}
+
+	/* Cards */
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.card {
+		background: #fff;
+		border-radius: 20px;
+		padding: 2rem 1.75rem;
+		box-shadow: 0 6px 24px rgba(10, 70, 133, 0.08);
+		border-top: 5px solid var(--yellow);
+	}
+
+	.card h3 {
+		font-size: 1.3rem;
+		color: var(--blue-dark);
+		margin-bottom: 0.5rem;
+	}
+
+	.card-icon {
+		margin-bottom: 1rem;
+		color: var(--blue);
+	}
+
+	.card-icon svg {
+		width: 34px;
+		height: 34px;
+	}
+
+	/* Other ways */
+	.ways {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.way {
+		padding: 1.5rem 1.75rem;
+		border-left: 4px solid var(--blue);
+		background: #fff;
+		border-radius: 0 16px 16px 0;
+		box-shadow: 0 4px 16px rgba(10, 70, 133, 0.06);
+	}
+
+	.way h3 {
+		font-size: 1.2rem;
+		color: var(--blue-dark);
+		margin-bottom: 0.4rem;
+	}
+
+	.way p {
+		margin-bottom: 0.75rem;
+	}
+
+	.way a {
+		font-weight: 700;
+	}
+
+	@media (max-width: 800px) {
+		.donate-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 700px) {
+		.page-hero {
+			padding: 3rem 0;
+		}
+
+		.section {
+			padding: 3rem 0;
+		}
+
+		.donate-cta {
+			padding: 1.75rem 1.25rem;
+		}
+
+		.btn-big {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

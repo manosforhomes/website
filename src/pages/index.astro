@@ -45,8 +45,8 @@ const pillars = [
 					homes for families in need and bringing neighbors together, one pair of hands at a time.
 				</p>
 				<div class="hero-actions">
-					<a href="#involved" class="btn btn-yellow">Get Involved</a>
-					<a href={instagram} target="_blank" rel="noopener" class="btn btn-outline">Follow Our Journey</a>
+					<a href="/donate" class="btn btn-yellow">Donate</a>
+					<a href="#involved" class="btn btn-outline">Get Involved</a>
 				</div>
 			</div>
 			<svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
@@ -179,8 +179,9 @@ const pillars = [
 					pair of hands makes a difference.
 				</p>
 				<div class="hero-actions">
+					<a href="/donate" class="btn btn-yellow">Donate</a>
 					<a href="mailto:info@manosforhomes.org" class="btn btn-blue">Email Us</a>
-					<a href={instagram} target="_blank" rel="noopener" class="btn btn-yellow">Message us on Instagram</a>
+					<a href={instagram} target="_blank" rel="noopener" class="btn btn-outline-blue">Message us on Instagram</a>
 				</div>
 				<p class="contact-note">
 					Or write to us directly at <a href="mailto:info@manosforhomes.org">info@manosforhomes.org</a>
@@ -235,6 +236,11 @@ const pillars = [
 	.btn-outline {
 		border: 2px solid #fff;
 		color: #fff;
+	}
+
+	.btn-outline-blue {
+		border: 2px solid var(--blue);
+		color: var(--blue);
 	}
 
 	/* Hero */

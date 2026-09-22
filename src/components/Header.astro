@@ -14,7 +14,8 @@ const { current = '' } = Astro.props;
 			<a href="/#work">What We Do</a>
 			<a href="/#homes">Our Work</a>
 			<a href="/#involved">Get Involved</a>
-			<a href={instagram} target="_blank" rel="noopener" class="btn-follow">Follow Us</a>
+			<a href={instagram} target="_blank" rel="noopener">Follow Us</a>
+			<a href="/donate" class="btn-donate" aria-current={current === 'donate' ? 'page' : undefined}>Donate</a>
 		</div>
 	</nav>
 </header>
@@ -69,19 +70,19 @@ const { current = '' } = Astro.props;
 		flex-wrap: wrap;
 	}
 
-	.nav-links > a:not(.btn-follow) {
+	.nav-links > a:not(.btn-donate) {
 		color: #eaf5fe;
 		text-decoration: none;
 		font-weight: 700;
 		font-size: 0.95rem;
 	}
 
-	.nav-links > a:not(.btn-follow):hover,
-	.nav-links > a[aria-current='page'] {
+	.nav-links > a:not(.btn-donate):hover,
+	.nav-links > a:not(.btn-donate)[aria-current='page'] {
 		color: var(--yellow);
 	}
 
-	.btn-follow {
+	.btn-donate {
 		display: inline-block;
 		font-family: 'Baloo 2', sans-serif;
 		font-weight: 700;
@@ -94,7 +95,7 @@ const { current = '' } = Astro.props;
 		transition: transform 0.15s ease;
 	}
 
-	.btn-follow:hover {
+	.btn-donate:hover {
 		transform: translateY(-2px);
 	}
 
@@ -110,7 +111,7 @@ const { current = '' } = Astro.props;
 			gap: 0.5rem 1rem;
 		}
 
-		.nav-links > a:not(.btn-follow) {
+		.nav-links > a:not(.btn-donate) {
 			font-size: 0.9rem;
 		}
 	}
